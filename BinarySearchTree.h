@@ -164,42 +164,35 @@ template < class T >
 T** BinarySearchTree<T>::toArray()
 {
    //DO THIS
-   T** sorted = new T*[sze];
+   T** array = new T*[sze];
    int counter = 0;
 
    BinaryTreeIterator<T>* iter = iterator();
+   iter->setInorder();
    while (iter->hasNext())
    {
-      sorted[counter] = iter->getNext();
+      array[counter] = iter->next();
       counter++;
    }
    
+   return array;
 }
 
 template < class T >
-T** BinarySearchTree<T>::treeSort(T** items, int num_itemss, int (*comp_items) (T* item_1, T* item_2), int (*comp_keys) (String* key, T* item))
+T** BinarySearchTree<T>::treeSort(T** items, int num_items, int (*comp_items) (T* item_1, T* item_2), int (*comp_keys) (String* key, T* item))
 {
    //DO THIS
    BinarySearchTree<T>* BST = new BinarySearchTree(comp_items, comp_keys);
-   T** sorted = toArray();
-   T** temp = new T*[num_itemss];
-   int counter = 0;
-
-   for (int i = 0; i < num_itemss; i++)
+   T** sorted;
+  
+   for (int i = 0; i < num_items; i++)
    {
-      for (int j = 0; j < num_itemss; j++)
-      {
-         int comp = comp_items(sorted[i], items[j]);
-         if (comp == 0)
-         {
-            temp[counter] = sorted[i];
-            counter++;
-         }
-      }
+      BST->insert(items[i]);
    }
-
-   return temp;
-
+   
+   sorted = BST->toArray();
+   
+   return sorted;
 }
 
 template < class T >
