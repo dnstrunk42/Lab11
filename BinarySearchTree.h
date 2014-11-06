@@ -180,6 +180,7 @@ template < class T >
 T** BinarySearchTree<T>::treeSort(T** items, int num_itemss, int (*comp_items) (T* item_1, T* item_2), int (*comp_keys) (String* key, T* item))
 {
    //DO THIS
+   BinarySearchTree<T>* BST = new BinarySearchTree(comp_items, comp_keys);
    T** sorted = toArray();
    T** temp = new T*[num_itemss];
    int counter = 0;
