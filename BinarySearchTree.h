@@ -73,7 +73,6 @@ TreeNode<T>* BinarySearchTree<T>::removeItem(TreeNode<T>* tNode, String* sk)
 		return tNode;
    }
    
-   T* nItem = tNode->getItem();
    int comp = (*compare_keys) (sk, tNode->getItem());
    
    if( comp == 0)
@@ -124,7 +123,6 @@ TreeNode<T>* BinarySearchTree<T>::removeNode(TreeNode<T>* tNode)
       tNode->setItem(data);
       TreeNode<T>* subtree = removeLeftMost(right);
       tNode->setRight(subtree);
-
    }
 }
 
@@ -160,16 +158,14 @@ TreeNode<T>* BinarySearchTree<T>::removeLeftMost(TreeNode<T>* tNode)
 
       return tNode;
    }
-
 }
 
 template < class T >
 T** BinarySearchTree<T>::toArray()
 {
    //DO THIS
-
-
-
+   T** sorted = new T*[sze];
+   
 }
 
 template < class T >
