@@ -184,7 +184,7 @@ T** BinarySearchTree<T>::treeSort(T** items, int num_itemss, int (*comp_items) (
    T** temp = new T*[num_itemss];
    int counter = 0;
 
-   for (int i = 0; i < sze; i++)
+   for (int i = 0; i < num_itemss; i++)
    {
       for (int j = 0; j < num_itemss; j++)
       {
