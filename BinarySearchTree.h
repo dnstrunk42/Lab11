@@ -112,8 +112,12 @@ T* BinarySearchTree<T>::findLeftMost(TreeNode<T>* tNode)
    //DO THIS (use a while loop)
 
 
+   while (tNode->getLeft() != NULL)
+   {
+      tNode = tNode->getLeft();
+   }
 
-
+   return tNode->getItem();
 
 }
 
@@ -122,9 +126,20 @@ TreeNode<T>* BinarySearchTree<T>::removeLeftMost(TreeNode<T>* tNode)
 {
    //DO THIS (recursion)
 
+   if (tNode->getLeft() == NULL)
+   {
+      TreeNode<T>* temp = tNode->getRight();
+      delete tNode;
 
+      return temp;
+   }
+   else
+   {
+      TreeNode<T>* subtree = removeLeftMost(tNode->getLeft());
+      tNode->setLeft(subtree);
 
-
+      return tNode;
+   }
 
 }
 
